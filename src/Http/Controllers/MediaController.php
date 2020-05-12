@@ -20,7 +20,7 @@ class MediaController extends Controller
         $searchText = $request->input('search_text') ?: null;
         $perPage = $request->input('per_page') ?: 18;
 
-        $collectionName = $request->input('collection');
+        $collectionToFilterBy = $request->input('filterByCollection');
 
         $query = null;
 
@@ -29,8 +29,8 @@ class MediaController extends Controller
         } else {
             $query = $mediaClass::query();
 
-            if ($collectionName) {
-                $query->where('collection_name', $collectionName);
+            if ($collectionToFilterBy) {
+                $query->where('collection_name', $collectionToFilterBy);
             }
 
             if ($searchText) {

@@ -87,7 +87,7 @@
         default: false,
         type: Boolean
       },
-      collection: {
+      filterByCollection: {
         default: null,
         type: String
       }
@@ -138,7 +138,7 @@
           .get(
             `/nova-vendor/ebess/advanced-nova-media-library/media`,
             {
-              params: Object.assign(this.requestParams, { collection: this.collection })
+              params: Object.assign(this.requestParams, { filterByCollection: this.filterByCollection })
             }
           )
       }

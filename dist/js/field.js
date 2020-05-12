@@ -434,7 +434,7 @@ __webpack_require__.r(__webpack_exports__);
       "default": false,
       type: Boolean
     },
-    collection: {
+    filterByCollection: {
       "default": null,
       type: String
     }
@@ -490,7 +490,7 @@ __webpack_require__.r(__webpack_exports__);
     createRequest: function createRequest() {
       return Nova.request().get("/nova-vendor/ebess/advanced-nova-media-library/media", {
         params: Object.assign(this.requestParams, {
-          collection: this.collection
+          filterByCollection: this.filterByCollection
         })
       });
     }
@@ -1099,6 +1099,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -1361,7 +1362,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".input-range[data-v-6f57711c] {\n  width: 100%;\n  max-width: 300px;\n}\n.footer[data-v-6f57711c] {\n  display: flex;\n  justify-content: space-between;\n}\n.modal-cropper[data-v-6f57711c] {\n  z-index: 400;\n}\n.fade-enter-active[data-v-6f57711c], .fade-leave-active[data-v-6f57711c] {\n  transition: opacity 0.3s;\n}\n.fade-enter[data-v-6f57711c], .fade-leave-to[data-v-6f57711c] {\n  opacity: 0;\n}", ""]);
+exports.push([module.i, ".input-range[data-v-6f57711c] {\n  width: 100%;\n  max-width: 300px;\n}\n.footer[data-v-6f57711c] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.modal-cropper[data-v-6f57711c] {\n  z-index: 400;\n}\n.fade-enter-active[data-v-6f57711c], .fade-leave-active[data-v-6f57711c] {\n  -webkit-transition: opacity 0.3s;\n  transition: opacity 0.3s;\n}\n.fade-enter[data-v-6f57711c], .fade-leave-to[data-v-6f57711c] {\n  opacity: 0;\n}", ""]);
 
 // exports
 
@@ -1399,7 +1400,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".gallery.editable .gallery-item {\n  cursor: -webkit-grab;\n  cursor: grab;\n}\n.gallery .gallery-item {\n  float: left;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  position: relative;\n  border-radius: 10px;\n  background-color: #e8f5fb;\n}\n.gallery .gallery-item .gallery-item-info {\n  display: flex;\n  background-color: rgba(232, 245, 251, 0.8);\n  border-radius: 10px;\n  z-index: 10;\n}", ""]);
+exports.push([module.i, ".gallery.editable .gallery-item {\n  cursor: -webkit-grab;\n  cursor: grab;\n}\n.gallery .gallery-item {\n  float: left;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  position: relative;\n  border-radius: 10px;\n  background-color: #e8f5fb;\n}\n.gallery .gallery-item .gallery-item-info {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  background-color: rgba(232, 245, 251, 0.8);\n  border-radius: 10px;\n  z-index: 10;\n}", ""]);
 
 // exports
 
@@ -1418,7 +1419,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".gallery .edit.edit--file {\n  position: relative;\n  top: auto;\n  right: auto;\n}\n.gallery-item-file.gallery-item {\n  width: 100%;\n}\n.gallery-item-file.gallery-item .gallery-item-info {\n  display: flex;\n}\n.gallery-item-file.gallery-item .gallery-item-info .label {\n  flex-grow: 1;\n}\n.gallery-item-file.gallery-item .gallery-item-info .download {\n  color: var(--primary-dark);\n}\n.gallery-item-file.gallery-item .gallery-item-info .delete {\n  align-self: flex-end;\n  color: var(--danger);\n}", ""]);
+exports.push([module.i, ".gallery .edit.edit--file {\n  position: relative;\n  top: auto;\n  right: auto;\n}\n.gallery-item-file.gallery-item {\n  width: 100%;\n}\n.gallery-item-file.gallery-item .gallery-item-info {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.gallery-item-file.gallery-item .gallery-item-info .label {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n.gallery-item-file.gallery-item .gallery-item-info .download {\n  color: var(--primary-dark);\n}\n.gallery-item-file.gallery-item .gallery-item-info .delete {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  color: var(--danger);\n}", ""]);
 
 // exports
 
@@ -1437,7 +1438,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".gallery .gallery-item-image.gallery-item {\n  width: 150px;\n  height: 150px;\n}\n.gallery .gallery-item-image.gallery-item:hover .gallery-item-info {\n  display: flex;\n}\n.gallery .gallery-item-image.gallery-item.show-dimensions {\n  padding-bottom: 24px;\n}\n.gallery .gallery-item-image.gallery-item .gallery-item-info {\n  display: none;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  background-color: rgba(232, 245, 251, 0.8);\n  border-radius: 10px;\n  position: absolute;\n  z-index: 10;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.gallery .gallery-item-image.gallery-item .gallery-item-info .preview {\n  color: var(--black);\n}\n.gallery .gallery-item-image.gallery-item .gallery-item-info .delete {\n  right: 10px;\n  color: var(--danger);\n}\n.gallery .gallery-item-image.gallery-item .gallery-item-info .crop {\n  left: 10px;\n  top: auto;\n  bottom: 10px;\n}\n.gallery .gallery-item-image.gallery-item .gallery-image {\n  -o-object-fit: contain;\n     object-fit: contain;\n  display: block;\n  max-height: 100%;\n  border-radius: 10px;\n}\n.gallery .gallery-item-image.gallery-item .dimensions,\n.gallery .gallery-item-image.gallery-item .type {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  font-size: 0.75rem;\n  line-height: 0.95;\n  text-align: center;\n}\n.gallery .gallery-item-image.gallery-item .dimensions {\n  bottom: 1px;\n}\n.gallery .gallery-item-image.gallery-item .type {\n  top: 3px;\n}\n.gallery .icon {\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  color: var(--info);\n}\n.gallery .edit {\n  right: 30px;\n}\n.gallery .download {\n  left: 10px;\n}", ""]);
+exports.push([module.i, ".gallery .gallery-item-image.gallery-item {\n  width: 150px;\n  height: 150px;\n}\n.gallery .gallery-item-image.gallery-item:hover .gallery-item-info {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.gallery .gallery-item-image.gallery-item.show-dimensions {\n  padding-bottom: 24px;\n}\n.gallery .gallery-item-image.gallery-item .gallery-item-info {\n  display: none;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: rgba(232, 245, 251, 0.8);\n  border-radius: 10px;\n  position: absolute;\n  z-index: 10;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.gallery .gallery-item-image.gallery-item .gallery-item-info .preview {\n  color: var(--black);\n}\n.gallery .gallery-item-image.gallery-item .gallery-item-info .delete {\n  right: 10px;\n  color: var(--danger);\n}\n.gallery .gallery-item-image.gallery-item .gallery-item-info .crop {\n  left: 10px;\n  top: auto;\n  bottom: 10px;\n}\n.gallery .gallery-item-image.gallery-item .gallery-image {\n  -o-object-fit: contain;\n     object-fit: contain;\n  display: block;\n  max-height: 100%;\n  border-radius: 10px;\n}\n.gallery .gallery-item-image.gallery-item .dimensions,\n.gallery .gallery-item-image.gallery-item .type {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  font-size: 0.75rem;\n  line-height: 0.95;\n  text-align: center;\n}\n.gallery .gallery-item-image.gallery-item .dimensions {\n  bottom: 1px;\n}\n.gallery .gallery-item-image.gallery-item .type {\n  top: 3px;\n}\n.gallery .icon {\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  color: var(--info);\n}\n.gallery .edit {\n  right: 30px;\n}\n.gallery .download {\n  left: 10px;\n}", ""]);
 
 // exports
 
@@ -50614,12 +50615,12 @@ var render = function() {
           "div",
           { class: { "px-8 pt-6": _vm.field.fullSize } },
           [
-            _vm.hasSetInitialValue && !_vm.field.disableAddingNewMedia
+            _vm.hasSetInitialValue
               ? _c("gallery", {
                   ref: "gallery",
                   attrs: {
                     slot: "value",
-                    editable: !_vm.field.readonly,
+                    editable: !_vm.field.readonly && !_vm.field.existingMedia,
                     removable: _vm.field.removable,
                     "custom-properties": "",
                     field: _vm.field,
@@ -50663,12 +50664,16 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
+                    _c("pre", [
+                      _vm._v(_vm._s(JSON.stringify(this.field, null, 2)))
+                    ]),
+                    _vm._v(" "),
                     _c("existing-media", {
                       attrs: {
                         open: _vm.existingMediaOpen,
-                        collection: this.field.attribute,
-                        "filter-by-collection": this.field
-                          .filterExistingMediaByCollection
+                        "filter-by-collection":
+                          this.field.filterExistingMediaByCollection ||
+                          this.field.attribute
                       },
                       on: {
                         close: function($event) {
@@ -56840,8 +56845,8 @@ Nova.booting(function (Vue, router) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/volkerrose/Sites/_forks/advanced-nova-media-library/resources/js/field.js */"./resources/js/field.js");
-module.exports = __webpack_require__(/*! /Users/volkerrose/Sites/_forks/advanced-nova-media-library/resources/sass/field.scss */"./resources/sass/field.scss");
+__webpack_require__(/*! /Users/volkerrose/Sites/cosmed-backend/vendor/ebess/advanced-nova-media-library/resources/js/field.js */"./resources/js/field.js");
+module.exports = __webpack_require__(/*! /Users/volkerrose/Sites/cosmed-backend/vendor/ebess/advanced-nova-media-library/resources/sass/field.scss */"./resources/sass/field.scss");
 
 
 /***/ })

@@ -23,8 +23,8 @@ trait HandlesExistingMediaTrait
         return $this->withMeta(['disableAddingNewMedia' => true]);
     }
 
-    public function filterExistingMediaByCollection(): self {
-        return $this->withMeta(['filterExistingMediaByCollection' => true]);
+    public function filterExistingMediaByCollection($sourceCollectionName = null): self {
+        return $this->withMeta(['filterExistingMediaByCollection' => $sourceCollectionName]);
     }
 
     private function addExistingMedia(NovaRequest $request, $data, HasMedia $model, string $collection, Collection $medias): Collection
@@ -48,6 +48,8 @@ trait HandlesExistingMediaTrait
                 if ($this->responsive) {
                     $media->withResponsiveImages();
                 }
+
+                // TODO: use target collection
 
                 $media = $media->toMediaCollection($collection);
 
