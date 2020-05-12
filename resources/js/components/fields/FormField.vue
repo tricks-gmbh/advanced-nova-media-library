@@ -2,7 +2,7 @@
   <component :is="field.fullSize ? 'full-width-field' : 'default-field'" :field="field" full-width-content>
     <template slot="field">
       <div :class="{'px-8 pt-6': field.fullSize}">
-        <gallery slot="value" ref="gallery" v-if="hasSetInitialValue"
+        <gallery slot="value" ref="gallery" v-if="hasSetInitialValue && !field.disableAddingNewMedia"
                  v-model="value" :editable="!field.readonly" :removable="field.removable" custom-properties :field="field" :multiple="field.multiple"
                  :has-error="hasError" :first-error="firstError"/>
 
@@ -10,7 +10,8 @@
           <button type="button" class="form-file-btn btn btn-default btn-primary mt-2" @click="existingMediaOpen = true">
             {{  openExistingMediaLabel }}
           </button>
-          <existing-media :open="existingMediaOpen" @close="existingMediaOpen = false" @select="addExistingItem"/>
+          <existing-media :open="existingMediaOpen" @close="existingMediaOpen = false" @select="addExistingItem"
+          :collection="this.field.attribute" :filter-by-collection="this.field.filterExistingMediaByCollection" />
         </div>
       </div>
     </template>
@@ -55,7 +56,7 @@
        */
       setInitialValue() {
         let value = this.field.value || [];
-          
+
         if (!this.field.multiple) {
           value = value.slice(0, 1);
         }
@@ -87,7 +88,7 @@
       getImageCustomProperties(image) {
         return (this.field.customPropertiesFields || []).reduce((properties, { attribute: property }) => {
           properties[property] = _.get(image, `custom_properties.${property}`);
-          
+
           // Fixes checkbox problem
           if(properties[property] === true) {
               properties[property] = 1;

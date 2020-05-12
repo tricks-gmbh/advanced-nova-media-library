@@ -20,12 +20,18 @@ class MediaController extends Controller
         $searchText = $request->input('search_text') ?: null;
         $perPage = $request->input('per_page') ?: 18;
 
+        $collectionName = $request->input('collection');
+
         $query = null;
 
         if ($searchText && $mediaClassIsSearchable) {
             $query = $mediaClass::search($searchText);
         } else {
             $query = $mediaClass::query();
+
+            if ($collectionName) {
+                $query->where('collection_name', $collectionName);
+            }
 
             if ($searchText) {
                 $query->where(function ($query) use ($searchText) {

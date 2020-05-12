@@ -86,6 +86,10 @@
       open: {
         default: false,
         type: Boolean
+      },
+      collection: {
+        default: null,
+        type: String
       }
     },
     computed: {
@@ -134,7 +138,7 @@
           .get(
             `/nova-vendor/ebess/advanced-nova-media-library/media`,
             {
-              params: this.requestParams
+              params: Object.assign(this.requestParams, { collection: this.collection })
             }
           )
       }
