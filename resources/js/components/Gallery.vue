@@ -108,8 +108,10 @@
 
       add() {
         Array.from(this.$refs.file.files).forEach(file => {
-          file = new File([file], file.name, {type: file.type});
-          this.readFile(file)
+          const blobFile = new Blob([file], { type: file.type });
+          blobFile.lastModifiedDate = new Date();
+          blobFile.name = file.name;
+          this.readFile(blobFile);
         });
 
         // reset file input so if you upload the same image sequentially
@@ -128,6 +130,10 @@
             name: file.name,
             file_name: file.name,
           };
+
+          if (!this.validateFile(fileData.file)) {
+            return;
+          }
 
           if (this.multiple) {
             this.images.push(fileData);
@@ -156,6 +162,36 @@
             callback(blob)
           }
         }
+      },
+      validateFile(file) {
+        return this.validateFileSize(file) && this.validateFileType(file);
+      },
+      validateFileSize(file) {
+        if (this.field.maxFileSize && ((file.size / 1024) > this.field.maxFileSize)) {
+          this.$toasted.error(this.__(
+            'Maximum file size is :amount MB',
+            {amount: String(this.field.maxFileSize / 1024)}
+          ));
+          return false;
+        }
+        return true;
+      },
+      validateFileType(file) {
+        if (!Array.isArray(this.field.allowedFileTypes)) {
+          return true;
+        }
+
+        for (const type of this.field.allowedFileTypes) {
+          if (file.type.startsWith(type)) {
+            return true;
+          }
+        }
+
+        this.$toasted.error(this.__(
+          'File type must be: :types',
+          {types: this.field.allowedFileTypes.join(' / ')}
+        ));
+        return false;
       },
     },
     mounted: function () {
